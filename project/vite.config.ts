@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  base: '/Resume/', // 👈 this line is essential
+  base: '/Resume/', // essential
   plugins: [react()],
   optimizeDeps: {
     include: ['react', 'react-dom', 'react-globe.gl', 'three', 'd3'],
