@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ExternalLink, Download, Menu, X } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import pianoImage from './assets/piano.jpg';
+import ProjectsSection from './components/ProjectsSection';
+import ResumeSection from './components/ResumeSection';
+
 import './App.css';
 
 // Import Globe component with loading fallback
@@ -132,7 +135,7 @@ const App: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
-              {['home', 'projects', 'travel', 'skills', 'contact'].map((item) => (
+              {['home', 'projects', 'resume', 'travel', 'skills', 'contact'].map((item) => (
                 <Link
                   key={item}
                   to={item}
@@ -160,7 +163,7 @@ const App: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               className="md:hidden bg-white border-t"
             >
-              {['home', 'projects', 'travel', 'skills', 'contact'].map((item) => (
+              {['home', 'projects', 'resume', 'travel', 'skills', 'contact'].map((item) => (
                 <Link
                   key={item}
                   to={item}
@@ -255,75 +258,7 @@ const App: React.FC = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-[#0d1117]">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="max-w-6xl mx-auto"
-          >
-            <h2 className="text-4xl font-bold mb-4 text-center text-[#56CCF2]">Featured Projects</h2>
-            <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills and experience in web development.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="bg-[#1c1f26] rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-[#2c2f36]"
-                >
-                  <div className="relative h-48">
-                    <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                    <h3 className="absolute bottom-4 left-4 text-xl font-bold text-white">{project.title}</h3>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-300 mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-[#2c2f36] text-[#56CCF2] rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex space-x-4">
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-gray-300 hover:text-[#56CCF2] transition-colors"
-                      >
-                        <Github size={20} className="mr-1" />
-                        Code
-                      </a>
-                      {project.live && (
-                        <a
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center text-gray-300 hover:text-[#56CCF2] transition-colors"
-                        >
-                          <ExternalLink size={20} className="mr-1" />
-                          Live Demo
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <ProjectsSection />
 
       {/* Travel Globe Section */}
       <section id="travel" className="py-20 bg-[#111318]">
@@ -350,6 +285,11 @@ const App: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Resume Section */}
+      <ResumeSection />
+
+
 
       {/* Skills Section */}
       <section id="skills" className="py-20 bg-[#0d1117]">
