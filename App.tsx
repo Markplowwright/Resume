@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import ProjectsSection from './components/ProjectsSection';
-import ResumeSection from './components/ResumeSection';
+import ProjectsSection from './ProjectsSection';
+import ResumeSection from './ResumeSection';
 
 function App() {
   return (
