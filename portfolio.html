@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Plowright - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #0d1117;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Profile Section Styles */
+        .profile-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0d1117 0%, #1a1a2e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .profile-content {
+            z-index: 2;
+        }
+
+        .profile-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #56CCF2;
+            line-height: 1.1;
+        }
+
+        .profile-subtitle {
+            font-size: 1.8rem;
+            color: #d1d5db;
+            margin-bottom: 30px;
+            min-height: 2.5rem;
+        }
+
+        .typing-text {
+            color: #56CCF2;
+            font-weight: 600;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .profile-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .profile-link:hover {
+            color: #56CCF2;
+        }
+
+        .about-card {
+            background-color: #1c1f26;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid #2c2f36;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #56CCF2;
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            display: block;
+            border: 4px solid #56CCF2;
+            box-shadow: 0 10px 30px rgba(86, 204, 242, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            color: #d1d5db;
+            text-align: center;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid #2c2f36;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #56CCF2;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #56CCF2;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #56CCF2;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #56CCF2;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background-color: #1c1f26;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #2c2f36;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(86, 204, 242, 0.2);
+        }
+
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+
+        .project-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #56CCF2;
+            color: black;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-title {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-description {
+            color: #d1d5db;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background-color: #2c2f36;
+            color: #56CCF2;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: #56CCF2;
+            color: black;
+        }
+
+        .btn-primary:hover {
+            background-color: #4db8d9;
+        }
+
+        .btn-secondary {
+            background-color: #2c2f36;
+            color: #56CCF2;
+        }
+
+        .btn-secondary:hover {
+            background-color: #363a44;
+        }
+
+        .resume-section {
+            background-color: #111318;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            border-radius: 8px;
+            background-color: #1c1f26;
+            color: #56CCF2;
+            border: 1px solid #2c2f36;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background-color: #56CCF2;
+            color: black;
+        }
+
+        .tab:hover {
+            background-color: #2c2f36;
+        }
+
+        .tab-content {
+            background-color: #1c1f26;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #2c2f36;
+        }
+
+        .experience-item {
+            border-left: 4px solid #56CCF2;
+            padding-left: 24px;
+            margin-bottom: 40px;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .experience-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #56CCF2;
+        }
+
+        .experience-period {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .experience-company {
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .experience-description {
+            color: #d1d5db;
+            margin-bottom: 15px;
+        }
+
+        .experience-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-description li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .experience-description li::before {
+            content: "•";
+            color: #56CCF2;
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-summary {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background-color: #1c1f26;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #2c2f36;
+            text-align: center;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .skill-description {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .profile-title {
+                font-size: 2.5rem;
+            }
+
+            .profile-subtitle {
+                font-size: 1.4rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Mark Plowright</a>
+            <div class="nav-links">
+                <a href="#profile" class="nav-link">Home</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#resume" class="nav-link">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile-section">
+        <div class="profile-container">
+            <div class="profile-content">
+                <h1 class="profile-title">Hi, I'm Mark Plowright</h1>
+                <div class="profile-subtitle">
+                    I am a <span class="typing-text" id="typing-text">Full Stack Developer</span>
+                </div>
+                <div class="profile-links">
+                    <a href="https://github.com/username" class="profile-link" target="_blank">🔗</a>
+                    <a href="http://www.linkedin.com/in/mark-plowright-a667a1167" class="profile-link" target="_blank">💼</a>
+                    <a href="mailto:mlpplowright@gmail.com" class="profile-link">📧</a>
+                </div>
+            </div>
+            <div class="about-card">
+                <h2 class="about-title">About Me</h2>
+                <img src="assets/piano-B9zh4agA.jpg" alt="Mark Plowright" class="profile-photo">
+                <p class="about-text">
+                    "Learn a little about a lot". I am a well rounded Cybersecurity Specialist, Full Stack Developer, and Educator.
+                </p>
+                <p class="about-text" style="margin-top: 15px;">
+                    When I'm not coding, you can find me on the court, writing, playing chess, or composing music. I am a lifelong learner with a passion for education and helping others.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <p class="section-description">
+                Explore my portfolio of projects with detailed documentation available for download.
+            </p>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.pexels.com/photos/672142/pexels-photo-672142.jpeg')">
+                        <div class="project-overlay"></div>
+                        <div class="project-category">Web Application</div>
+                        <h3 class="project-title">Track My Monarch</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A web application for Methodist University students to track their spending, allowing students to order easier on campus, view their spending history, and share monarch dollars with friends.
+                        </p>
+                        <div class="technologies">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Leaflet Maps</span>
+                        </div>
+                        <div class="project-buttons">
+                            <button class="btn btn-primary" onclick="downloadPDF('Track My Monarch')">
+                                📄 Download PDF
+                            </button>
+                            <a href="https://github.com/username/track-my-monarch" class="btn btn-secondary" target="_blank">
+                                🔗 Code
+                            </a>
+                            <a href="https://trackmymonarch.live" class="btn btn-secondary" target="_blank">
+                                🌐 Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg')">
+                        <div class="project-overlay"></div>
+                        <div class="project-category">Research</div>
+                        <h3 class="project-title">Methodist University AI Technical Research Publication</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            AI Technical Research Publication in Higher Education - Research on computational chemistry and machine learning applications.
+                        </p>
+                        <div class="technologies">
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Computational Chemistry</span>
+                            <span class="tech-tag">Research</span>
+                            <span class="tech-tag">Higher Education</span>
+                        </div>
+                        <div class="project-buttons">
+                            <button class="btn btn-primary" onclick="downloadPDF('AI Research Publication')">
+                                📄 Download PDF
+                            </button>
+                            <a href="https://www.methodist.edu/wp-content/uploads/2024/04/Booklet_CRC-Symposium_2024-1.pdf" class="btn btn-secondary" target="_blank">
+                                🔗 Visit Link
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg')">
+                        <div class="project-overlay"></div>
+                        <div class="project-category">Cybersecurity</div>
+                        <h3 class="project-title">Network Traffic Analysis using Machine Learning Random Forest</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Developed a ML model using RF in Scikit-learn to analyze network traffic and identify anomalies associated with potential security breaches. Used Wireshark for packet capture and Net Scrapper to automate feature extraction and test multiple attack scenarios.
+                        </p>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Wireshark</span>
+                            <span class="tech-tag">Net Scrapper</span>
+                            <span class="tech-tag">Network Security</span>
+                        </div>
+                        <div class="project-buttons">
+                            <button class="btn btn-primary" onclick="downloadPDF('Network Traffic Analysis')">
+                                📄 Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg')">
+                        <div class="project-overlay"></div>
+                        <div class="project-category">Research</div>
+                        <h3 class="project-title">Navigating Network Security Through Network Protocols, Ports, NetStat, and Simulation of SQL Injection</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Comprehensive research project exploring network security fundamentals including network protocols, port analysis, NetStat utilization, and practical SQL injection simulation.
+                        </p>
+                        <div class="technologies">
+                            <span class="tech-tag">Network Security</span>
+                            <span class="tech-tag">Network Protocols</span>
+                            <span class="tech-tag">Port Analysis</span>
+                            <span class="tech-tag">NetStat</span>
+                            <span class="tech-tag">SQL Injection</span>
+                            <span class="tech-tag">Cybersecurity Research</span>
+                        </div>
+                        <div class="project-buttons">
+                            <button class="btn btn-primary" onclick="downloadPDF('Network Security Research')">
+                                📄 Download PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg')">
+                        <div class="project-overlay"></div>
+                        <div class="project-category">Computational Chemistry</div>
+                        <h3 class="project-title">PIMM Fortran Optimizer Re-engineer</h3>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Modernized a legacy Fortran 77 computational chemistry program by rewriting it in Python, implementing advanced molecular mechanics and quantum mechanical calculations for pi-electron systems. This hybrid approach combines classical force field methods with quantum mechanical Self-Consistent Field (SCF) calculations to predict molecular structures and conformational energies with enhanced accuracy.
+                        </p>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Fortran 77</span>
+                            <span class="tech-tag">Computational Chemistry</span>
+                            <span class="tech-tag">Molecular Mechanics</span>
+                            <span class="tech-tag">Quantum Mechanics</span>
+                            <span class="tech-tag">SCF Methods</span>
+                            <span class="tech-tag">Geometry Optimization</span>
+                            <span class="tech-tag">NumPy</span>
+                        </div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Markplowwright/Fotran-Optimizer-Re-engineer" class="btn btn-secondary" target="_blank">
+                                🔗 Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="section resume-section">
+        <div class="container">
+            <h2 class="section-title">Resume & Experience</h2>
+            <p class="section-description">
+                Download my resume in different formats and explore my professional journey.
+            </p>
+
+            <div class="download-buttons">
+                <button class="btn btn-primary" onclick="downloadResume()">
+                    📄 Download Resume (PDF)
+                </button>
+                <button class="btn btn-secondary" onclick="downloadResume()">
+                    📋 Detailed Version
+                </button>
+                <button class="btn btn-secondary" onclick="downloadResume()">
+                    📅 One-Page Summary
+                </button>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('experience')">💼 Experience</button>
+                <button class="tab" onclick="showTab('education')">🎓 Education</button>
+                <button class="tab" onclick="showTab('volunteering')">🤝 Volunteering</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Experience Tab -->
+                <div id="experience-content" class="tab-panel">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Technical Trainer/Computational Chemistry Machine Learning</h3>
+                            <span class="experience-period">Jan 2025 - Present</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>University of Richmond</strong> • Richmond, VA
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Increased computational efficiency by 60% accuracy by training a LLM random forest model to predict the dipole moment</li>
+                                <li>Spearheaded a low-cost alternative to DFT methods, reducing computational costs by 80% for geometry optimization in molecules</li>
+                                <li>Modernized a geometry optimizer molecular mechanics program Fortran 77 to Python, abstracting subroutines into OOP classes to enhance modularity, testability, and reusability for future computational chemistry research and machine learning model training</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">Fortran 77</span>
+                            <span class="tech-tag">OOP</span>
+                            <span class="tech-tag">Computational Chemistry</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Project Manager/Technical Trainer</h3>
+                            <span class="experience-period">May 2024 - Present</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>Stealth AI Startup</strong> • Richmond, VA
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Led the end-to-end project lifecycle for a stealth AI-driven health technology platform, from requirements gathering and roadmap planning to delivery of working prototypes</li>
+                                <li>Oversaw integration planning with third-party APIs, healthcare data systems, and cloud infrastructure, ensuring security, scalability, and compliance (HIPAA/FTC)</li>
+                                <li>Built internal documentation and reporting systems to track KPIs, risks, and deliverables, improving transparency across stakeholders</li>
+                                <li>Applied Agile and Scrum practices, driving sprint planning, standups, and backlog management that improved delivery efficiency by 30%</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Project Management</span>
+                            <span class="tech-tag">Agile/Scrum</span>
+                            <span class="tech-tag">API Integration</span>
+                            <span class="tech-tag">HIPAA Compliance</span>
+                            <span class="tech-tag">Healthcare Technology</span>
+                            <span class="tech-tag">KPI Tracking</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Cyber Security/Computer Science Teaching Assistant</h3>
+                            <span class="experience-period">Jan 2024 - Nov 2024</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>Methodist University</strong> • Fayetteville, NC
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Assisted teaching across 3 courses for 40 students per semester, covering concepts including SQLi, XSS, Wireshark, SIEM tools, CLI scripting, network analysis, event viewer, and WSL (windows subsystem for Linux) Ubuntu setup</li>
+                                <li>Led student tryhackme scores and hacker rank scores to a 55% increase after tutoring sessions</li>
+                                <li>Conducted weekly tutoring sessions both in person and online, contributing to a 45% improvement in quizzes and exam scores</li>
+                                <li>Mentored students in introductory topics such as linear regression and random forest to apply AI in cybersecurity</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">SQLi</span>
+                            <span class="tech-tag">XSS</span>
+                            <span class="tech-tag">Wireshark</span>
+                            <span class="tech-tag">SIEM</span>
+                            <span class="tech-tag">CLI Scripting</span>
+                            <span class="tech-tag">Network Analysis</span>
+                            <span class="tech-tag">WSL</span>
+                            <span class="tech-tag">Ubuntu</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education Tab -->
+                <div id="education-content" class="tab-panel" style="display: none;">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">B.S Computer Information Technology, Cyber Security Information Assurance</h3>
+                            <span class="experience-period">December 2024</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>Methodist University</strong> • Fayetteville, NC
+                        </div>
+                        <div class="experience-description">
+                            <h4 style="color: #56CCF2; margin-bottom: 15px;">Relevant Courses:</h4>
+                            <div class="technologies">
+                                <span class="tech-tag">OPP</span>
+                                <span class="tech-tag">Malware Analysis</span>
+                                <span class="tech-tag">Python/Java/C++</span>
+                                <span class="tech-tag">Hacking</span>
+                                <span class="tech-tag">Network Security</span>
+                                <span class="tech-tag">SIEM</span>
+                                <span class="tech-tag">Data Analytics/SQL</span>
+                                <span class="tech-tag">Database Management</span>
+                                <span class="tech-tag">Operating Systems</span>
+                                <span class="tech-tag">Networking</span>
+                                <span class="tech-tag">Unix/Linux</span>
+                                <span class="tech-tag">Cloud Computing</span>
+                                <span class="tech-tag">Cybersecurity</span>
+                                <span class="tech-tag">Data Science</span>
+                                <span class="tech-tag">Data Analytics</span>
+                                <span class="tech-tag">Data Visualization</span>
+                                <span class="tech-tag">Data Engineering</span>
+                                <span class="tech-tag">Data Warehousing</span>
+                                <span class="tech-tag">Data Modeling</span>
+                                <span class="tech-tag">Data Integration</span>
+                                <span class="tech-tag">Data Governance</span>
+                                <span class="tech-tag">Data Security</span>
+                                <span class="tech-tag">Data Privacy</span>
+                                <span class="tech-tag">Linux CLI</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">React Native</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volunteering Tab -->
+                <div id="volunteering-content" class="tab-panel" style="display: none;">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Young Musician Scholarship</h3>
+                            <span class="experience-period">2017 - 2020</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>Cayman Islands</strong>
+                        </div>
+                        <div class="experience-description">
+                            <h4 style="color: #56CCF2; margin-bottom: 10px;">Description:</h4>
+                            <ul>
+                                <li>Received scholarship for musical excellence and contribution to music programs and winning performances</li>
+                                <li>Participated in various musical performances and events</li>
+                                <li>Demonstrated commitment to artistic and academic excellence</li>
+                            </ul>
+                            <h4 style="color: #56CCF2; margin: 20px 0 10px 0;">Impact:</h4>
+                            <ul>
+                                <li>Enhanced music program diversity</li>
+                                <li>Served as role model for aspiring musicians</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">ColorStack Member</h3>
+                            <span class="experience-period">2023 - 2024</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>ColorStack</strong>
+                        </div>
+                        <div class="experience-description">
+                            <h4 style="color: #56CCF2; margin-bottom: 10px;">Description:</h4>
+                            <ul>
+                                <li>Active member of organization supporting underrepresented minorities in tech</li>
+                                <li>Participated in networking events and professional development workshops</li>
+                                <li>Collaborated on initiatives to increase diversity in technology fields</li>
+                            </ul>
+                            <h4 style="color: #56CCF2; margin: 20px 0 10px 0;">Impact:</h4>
+                            <ul>
+                                <li>Contributed to diversity and inclusion efforts in tech</li>
+                                <li>Built professional network with industry leaders</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Founder - Chess Club</h3>
+                            <span class="experience-period">2022 - 2024</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>Methodist University Chess Club</strong>
+                        </div>
+                        <div class="experience-description">
+                            <h4 style="color: #56CCF2; margin-bottom: 10px;">Description:</h4>
+                            <ul>
+                                <li>Established and organized university chess club from inception</li>
+                                <li>Recruited members and organized regular meetings and tournaments</li>
+                                <li>Taught chess strategies and techniques to beginners</li>
+                                <li>Coordinated with other university clubs for collaborative events</li>
+                            </ul>
+                            <h4 style="color: #56CCF2; margin: 20px 0 10px 0;">Impact:</h4>
+                            <ul>
+                                <li>Grew club membership to 45+ active members</li>
+                                <li>Organized 12+ tournaments with 100+ participants</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skills-summary">
+                <h3 style="color: #56CCF2; font-size: 1.5rem; margin-bottom: 30px;">Key Skills & Expertise</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">💻</div>
+                        <h4 class="skill-title">Development</h4>
+                        <p class="skill-description">Full-stack web development with modern technologies</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🛡️</div>
+                        <h4 class="skill-title">Cybersecurity</h4>
+                        <p class="skill-description">Security assessment, penetration testing, and threat analysis</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">👥</div>
+                        <h4 class="skill-title">Leadership</h4>
+                        <p class="skill-description">Team collaboration, project management, and mentoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const roles = [
+            'Full Stack Developer',
+            'Cybersecurity Specialist', 
+            'Problem Solver',
+            'Musician',
+            'Chess Player',
+            'Educator'
+        ];
+        
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                typingText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500; // Pause before next role
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        function showTab(tabName) {
+            // Hide all tab panels
+            const panels = document.querySelectorAll('.tab-panel');
+            panels.forEach(panel => panel.style.display = 'none');
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected panel
+            document.getElementById(tabName + '-content').style.display = 'block';
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function downloadPDF(projectName) {
+            alert('Downloading PDF for: ' + projectName);
+            // In a real implementation, this would trigger the actual download
+        }
+
+        function downloadResume() {
+            alert('Downloading Resume PDF...');
+            // In a real implementation, this would trigger the actual download
+            // window.open('/resume/31-resume-mark-leslie-plowright-cli.pdf', '_blank');
+        }
+
+        // Smooth scrolling for navigation links
+        function smoothScroll(target) {
+            const element = document.querySelector(target);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Add some smooth scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start typing animation
+            typeWriter();
+            
+            // Add hover effects to project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add smooth scrolling to navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href');
+                    smoothScroll(target);
+                });
+            });
+
+            // Add scroll effect to navigation
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('.nav');
+                if (window.scrollY > 100) {
+                    nav.style.background = 'rgba(13, 17, 23, 0.98)';
+                } else {
+                    nav.style.background = 'rgba(13, 17, 23, 0.95)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
