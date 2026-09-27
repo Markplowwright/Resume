@@ -208,6 +208,7 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            align-items: start;
             gap: 30px;
             margin-bottom: 60px;
         }
@@ -589,38 +590,6 @@
 
                 <!-- Project 2 -->
                 <div class="project-card">
-                    <div class="project-image" style="background-image: url('https://images.pexels.com/photos/672142/pexels-photo-672142.jpeg')">
-                        <div class="project-overlay"></div>
-                        <div class="project-category">Web Application</div>
-                        <h3 class="project-title">Track My Monarch</h3>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-description">
-                            A web application for Methodist University students to track their spending, allowing students to order easier on campus, view their spending history, and share monarch dollars with friends.
-                        </p>
-                        <div class="technologies">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">Leaflet Maps</span>
-                        </div>
-                        <div class="project-buttons">
-                            <button class="btn btn-primary" onclick="downloadPDF('Track My Monarch')">
-                                📄 Download PDF
-                            </button>
-                            <a href="https://github.com/username/track-my-monarch" class="btn btn-secondary" target="_blank">
-                                🔗 Code
-                            </a>
-                            <a href="https://trackmymonarch.live" class="btn btn-secondary" target="_blank">
-                                🌐 Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
                     <div class="project-image" style="background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg')">
                         <div class="project-overlay"></div>
                         <div class="project-category">Research</div>
@@ -884,7 +853,7 @@
     </section>
 
     <!-- Resume Section -->
-    <section class="section resume-section">
+    <section id="resume" class="section resume-section">
         <div class="container">
             <h2 class="section-title">Resume & Experience</h2>
             <p class="section-description">
@@ -892,15 +861,15 @@
             </p>
 
             <div class="download-buttons">
-                <button class="btn btn-primary" onclick="downloadResume()">
+                <a href="assets/Mark_Plowright_Resume.pdf" class="btn btn-primary" download="Mark_Plowright_Resume.pdf">
                     📄 Download Resume (PDF)
-                </button>
-                <button class="btn btn-secondary" onclick="downloadResume()">
+                </a>
+                <a href="resume-detailed.html" class="btn btn-secondary">
                     📋 Detailed Version
-                </button>
-                <button class="btn btn-secondary" onclick="downloadResume()">
+                </a>
+                <a href="resume-one-page.html" class="btn btn-secondary">
                     📅 One-Page Summary
-                </button>
+                </a>
             </div>
 
             <div class="tabs">
@@ -914,83 +883,122 @@
                 <div id="experience-content" class="tab-panel">
                     <div class="experience-item">
                         <div class="experience-header">
-                            <h3 class="experience-title">Technical Trainer/Computational Chemistry Machine Learning</h3>
-                            <span class="experience-period">Jan 2025 - Present</span>
+                            <h3 class="experience-title">School Technology Specialist</h3>
+                            <span class="experience-period">Jan 2026 – Current</span>
                         </div>
                         <div class="experience-company">
-                            <strong>University of Richmond</strong> • Richmond, VA
+                            <strong>Acs International Resources (Inspiroz)</strong> • New York City, NY
                         </div>
                         <div class="experience-description">
                             <ul>
-                                <li>Increased computational efficiency by 60% accuracy by training a LLM random forest model to predict the dipole moment</li>
-                                <li>Spearheaded a low-cost alternative to DFT methods, reducing computational costs by 80% for geometry optimization in molecules</li>
-                                <li>Modernized a geometry optimizer molecular mechanics program Fortran 77 to Python, abstracting subroutines into OOP classes to enhance modularity, testability, and reusability for future computational chemistry research and machine learning model training</li>
+                                <li>Deliver on-site and remote technical support and end-user training across multiple school environments, managing devices and user access via Microsoft Intune and Microsoft Azure.</li>
+                                <li>Lead end-user training and create clear documentation to improve system adoption and reduce repeat support requests.</li>
+                                <li>Manage service requests through ServiceNow, coordinating across stakeholders to ensure SLA compliance and maintain accurate documentation trails.</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Microsoft Intune</span>
+                            <span class="tech-tag">Microsoft Azure</span>
+                            <span class="tech-tag">ServiceNow</span>
+                            <span class="tech-tag">End-User Training</span>
+                            <span class="tech-tag">Documentation</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">STEM Problem Solving Teacher</h3>
+                            <span class="experience-period">Jul 2025 – Jan 2026</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>Success Academy Charter School</strong> • Brooklyn, NY
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Collected and analyzed performance data from exams, quizzes, and assignments across each classroom to identify learning gaps and adjust instruction accordingly.</li>
+                                <li>Made engaging slides for 35 students per class across 4 different classrooms, encompassing topics of logic-based mathematics and problem-solving strategies, guiding students to approach complex problems by using systematic reasoning and persistence.</li>
+                            </ul>
+                        </div>
+                        <div class="technologies">
+                            <span class="tech-tag">Instruction</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Presentation Design</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Technical Trainer — Computational Chemistry Machine Learning</h3>
+                            <span class="experience-period">Dec 2024 – Apr 2025</span>
+                        </div>
+                        <div class="experience-company">
+                            <strong>University of Richmond</strong> • Richmond, VA • Short-Term Contract
+                        </div>
+                        <div class="experience-description">
+                            <ul>
+                                <li>Trained Post-Baccalaureate researchers on a Python/LLM-driven research tool through presentations, group sessions, and 1-on-1 coaching — translating technical functionality into workflows non-technical users could adopt confidently.</li>
+                                <li>Created and continuously improved SOPs, FAQs, troubleshooting guides, and internal knowledge bases to standardize processes and reduce reliance on ad hoc support.</li>
+                                <li>Owned the technical lifecycle of hardware computer lab systems, coordinating maintenance and access across a shared research environment.</li>
                             </ul>
                         </div>
                         <div class="technologies">
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Machine Learning</span>
                             <span class="tech-tag">LLM</span>
-                            <span class="tech-tag">Random Forest</span>
-                            <span class="tech-tag">Fortran 77</span>
-                            <span class="tech-tag">OOP</span>
-                            <span class="tech-tag">Computational Chemistry</span>
+                            <span class="tech-tag">SOPs</span>
+                            <span class="tech-tag">Technical Training</span>
+                            <span class="tech-tag">Knowledge Base</span>
                         </div>
                     </div>
 
                     <div class="experience-item">
                         <div class="experience-header">
-                            <h3 class="experience-title">Project Manager/Technical Trainer</h3>
-                            <span class="experience-period">May 2024 - Present</span>
+                            <h3 class="experience-title">IT Coordinator / AV Coordinator</h3>
+                            <span class="experience-period">Jun 2022 – Aug 2024</span>
                         </div>
                         <div class="experience-company">
-                            <strong>Stealth AI Startup</strong> • Richmond, VA
+                            <strong>The Exploration School Summer Program</strong> • Bronxville, NY • Summer Employment
                         </div>
                         <div class="experience-description">
                             <ul>
-                                <li>Led the end-to-end project lifecycle for a stealth AI-driven health technology platform, from requirements gathering and roadmap planning to delivery of working prototypes</li>
-                                <li>Oversaw integration planning with third-party APIs, healthcare data systems, and cloud infrastructure, ensuring security, scalability, and compliance (HIPAA/FTC)</li>
-                                <li>Built internal documentation and reporting systems to track KPIs, risks, and deliverables, improving transparency across stakeholders</li>
-                                <li>Applied Agile and Scrum practices, driving sprint planning, standups, and backlog management that improved delivery efficiency by 30%</li>
+                                <li>Delivered Tier 2/3 technical support using Windows CLI and task manager–based diagnostics.</li>
+                                <li>Configured and secured network connectivity for 100+ endpoints (iPads, phones, laptops, VOIP handsets) using NEC Univerge Blue, managing access across a high-density, high-turnover environment.</li>
+                                <li>Managed integrated building systems (Crestron touch panels, AV distribution, lighting/control systems) requiring coordination across multiple technical subsystems.</li>
                             </ul>
                         </div>
                         <div class="technologies">
-                            <span class="tech-tag">Project Management</span>
-                            <span class="tech-tag">Agile/Scrum</span>
-                            <span class="tech-tag">API Integration</span>
-                            <span class="tech-tag">HIPAA Compliance</span>
-                            <span class="tech-tag">Healthcare Technology</span>
-                            <span class="tech-tag">KPI Tracking</span>
+                            <span class="tech-tag">Windows CLI</span>
+                            <span class="tech-tag">NEC Univerge Blue</span>
+                            <span class="tech-tag">Crestron</span>
+                            <span class="tech-tag">AV Systems</span>
+                            <span class="tech-tag">Network Support</span>
                         </div>
                     </div>
 
                     <div class="experience-item">
                         <div class="experience-header">
-                            <h3 class="experience-title">Cyber Security/Computer Science Teaching Assistant</h3>
-                            <span class="experience-period">Jan 2024 - Nov 2024</span>
+                            <h3 class="experience-title">Co-Founder</h3>
+                            <span class="experience-period">Apr 2025 – Present</span>
                         </div>
                         <div class="experience-company">
-                            <strong>Methodist University</strong> • Fayetteville, NC
+                            <strong>GradAisle</strong> • GradAisle.com
                         </div>
                         <div class="experience-description">
+                            <p style="margin-bottom: 12px;">Free graduate school discovery and matching platform for U.S. Master's/PhD applicants, including international/F-1 students. Aggregates program-level data — tuition, CPT/OPT eligibility, STEM OPT status, TA/RA funding — that is otherwise scattered across individual university PDFs, letting students search and compare 1,000+ programs in one place.</p>
                             <ul>
-                                <li>Assisted teaching across 3 courses for 40 students per semester, covering concepts including SQLi, XSS, Wireshark, SIEM tools, CLI scripting, network analysis, event viewer, and WSL (windows subsystem for Linux) Ubuntu setup</li>
-                                <li>Led student tryhackme scores and hacker rank scores to a 55% increase after tutoring sessions</li>
-                                <li>Conducted weekly tutoring sessions both in person and online, contributing to a 45% improvement in quizzes and exam scores</li>
-                                <li>Mentored students in introductory topics such as linear regression and random forest to apply AI in cybersecurity</li>
+                                <li>Identified that program-level CPT/OPT/visa/funding data was fragmented across thousands of unstructured university PDFs, then built an AI-assisted extraction pipeline to parse that data into a structured, queryable PostgreSQL schema.</li>
+                                <li>Contacted and built working relationships with university admissions offices (Syracuse University and Fordham Gabelli) to verify program data accuracy and gather requirements directly from source contacts.</li>
+                                <li>Led cross-functional technical planning across a 3-person distributed team, running structured biweekly syncs to sequence a multi-phase platform rebuild with dependency-aware prioritization.</li>
+                                <li>Designed and queried the PostgreSQL database schema and metadata structure powering a 1,000+ program dataset, writing SQL to support search, filtering, and matching across tuition, CPT/OPT, and funding fields.</li>
+                                <li>Built and shipped the core platform end-to-end (Next.js 14, Supabase/Postgres, Redis), including the matching logic and the deployment pipeline on a self-hosted VPS (Dokploy, Traefik).</li>
                             </ul>
                         </div>
                         <div class="technologies">
-                            <span class="tech-tag">SQLi</span>
-                            <span class="tech-tag">XSS</span>
-                            <span class="tech-tag">Wireshark</span>
-                            <span class="tech-tag">SIEM</span>
-                            <span class="tech-tag">CLI Scripting</span>
-                            <span class="tech-tag">Network Analysis</span>
-                            <span class="tech-tag">WSL</span>
-                            <span class="tech-tag">Ubuntu</span>
-                            <span class="tech-tag">AI</span>
-                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Dokploy</span>
                         </div>
                     </div>
                 </div>
@@ -1000,7 +1008,7 @@
                     <div class="experience-item">
                         <div class="experience-header">
                             <h3 class="experience-title">B.S Computer Information Technology, Cyber Security Information Assurance</h3>
-                            <span class="experience-period">December 2024</span>
+                            <span class="experience-period">Jan 2021 – Dec 2024</span>
                         </div>
                         <div class="experience-company">
                             <strong>Methodist University</strong> • Fayetteville, NC
@@ -1222,12 +1230,6 @@
                 alert('Downloading PDF for: ' + projectName);
                 // In a real implementation, this would trigger the actual download
             }
-        }
-
-        function downloadResume() {
-            alert('Downloading Resume PDF...');
-            // In a real implementation, this would trigger the actual download
-            // window.open('/resume/31-resume-mark-leslie-plowright-cli.pdf', '_blank');
         }
 
         // Smooth scrolling for navigation links
